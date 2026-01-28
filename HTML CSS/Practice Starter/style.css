@@ -1,0 +1,43 @@
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+article {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  border-color: aqua;
+  border: 2px solid;
+  width: 25%;
+  display: inline-block;
+  /* display: block; */
+  vertical-align: top;
+}
+
+#cards {
+  /* display; */
+  margin: 50px 50px;
+  margin: 0 auto;
+  /* Horizontal align center */
+  text-align: center; /* For centering inline-block or inline elements*/
+}
+
+table {
+  width: 45%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 0 auto;
+}
+
+table th {
+  background-color: blue;
+  color: white;
+}
