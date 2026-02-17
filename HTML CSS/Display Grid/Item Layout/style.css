@@ -1,0 +1,18 @@
+.container {
+  background-color: #f0f0f0;
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  grid-auto-rows: 70px;
+  gap: 10px;
+  justify-content: end;
+  align-items: start;/* Height Change on applying this */
+  /* align-content: center; */
+}
+
+.item {
+  background-color: rgb(93, 204, 93);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px dotted black;
+}

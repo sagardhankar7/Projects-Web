@@ -1,0 +1,136 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+header h1,
+body {
+  margin: 0;
+}
+
+#overlaytext {
+  /* position: absolute; */
+  top: 0;
+  z-index: -1;
+  color: white;
+  text-align: center;
+}
+
+#overlayimg {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+  filter: brightness(80%);
+}
+
+#overlayimg img {
+  width: 100%;
+  /* height: 25vh; */
+}
+
+/* .card img {
+  width: 100%;
+  height: auto;
+  position: fixed;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+}
+
+ */
+
+.coach {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  /* margin: 60px auto; */
+  border: 2px solid #ccc;
+  display: inline-block;
+  border-radius: 20px;
+  position: relative;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.coach-info {
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+  color: white;
+  font-size: 0.7em;
+}
+
+.coach-cards {
+    width: 90%;
+    text-align: center;
+}
+
+.players-gallery {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  padding: 10px;
+  overflow-y: scroll;
+  border-radius: 20px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.players-gallery img {
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.coach-cards {
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.coach img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+.table {
+
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+td {
+    background-color: white;
+}
+
+footer {
+    height: 200px;
+    background-color: black;
+    width: 100%;
+    color: white;
+    text-align: center;
+}

@@ -1,0 +1,16 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: lightgoldenrodyellow;
+    margin: 20px;
+    background: url('https://img.freepik.com/premium-photo/india-national-fabric-flag_113767-1933.jpg?w=360');
+    background-position: center;
+    object-fit: cover;
+    display: inline-block;
+    transition: all 1s ease-in-out;
+}
+
+.box:hover {
+    /* transform: rotate(90deg); */
+    transform: skew(20deg) scale(1.2);
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.item {
+  padding: 10px;
+  margin: 5px;
+}
+
+.box1,
+.box3 {
+  background-color: lightskyblue;
+  border: 1px solid blue;
+}
+
+.box2 {
+  background-color: #ccc;
+  border: 1px solid #333;
+  height: 150px;
+  width: 150px;
+  align-self: flex-end;
+}

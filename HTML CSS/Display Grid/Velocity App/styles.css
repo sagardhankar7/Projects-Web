@@ -1,0 +1,85 @@
+body {
+  background-color: #e8f9fd;
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-auto-rows: minmax(400px, auto);
+}
+
+header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: #333;
+  color: #fff4f4;
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 30px;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.container {
+  padding: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.grid-item {
+  padding: 0px;
+  text-align: center;
+}
+
+.image-card,
+.content-card {
+  width: 100%;
+  height: 292px;
+}
+
+/* Image properties(Learner can modify the properties as per their preference) */
+img {
+  border-radius: 50%;
+  width: 70%;
+  height: 305px;
+  object-fit: cover;
+}
+
+.grid-item:nth-child() {
+  background-color: #ddd;
+}
+
+p {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+h2 {
+  margin-top: 60px;
+}
