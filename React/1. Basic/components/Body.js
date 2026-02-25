@@ -37,6 +37,7 @@ const Body = () => {
             <div className="search-container">
                 <button onClick={()=>{
                     const filteredList = resList.filter((restaurant)=>restaurant.rating>4.0)
+                    // Whenever the State Variable Updates. React ReRender the UIComponent.
                     setStateList(filteredList)
                 }}>
                     Top Rated Restaurant
