@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 
-const resList = [
+let resList = [
     {
         name: "A restaurant",
         rating: 4.2,
@@ -32,7 +32,15 @@ const resList = [
 const Body = () => {
     return (
         <div className="main-body">
-            <div className="search-container"></div>
+            <div className="search-container">
+                <button onClick={()=>{
+                    resList = resList.filter((restaurant)=>restaurant.rating>4.0)
+                    console.log(resList)
+                }}>
+                    Top Rated Restaurant
+                </button>
+            </div>
+
             <div className="restaurant-container">
                 {/* PROPS Structure is better */}
                 {resList.map((restaurant)=>(
