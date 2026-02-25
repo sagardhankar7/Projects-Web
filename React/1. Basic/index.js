@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-let heading = React.createElement(
-  "div", { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {key: "h1"}, "This is h1 tag"),
-    React.createElement("h2", {key: "h2"}, "This is h2 tag"),
-  ]),
-);
+const heading = <h1>This is JXS (Behind the scene- React Element) Babel convert the Jsx to react element</h1>
+
+const HeadingComponent = () => <div>Functional Component returns the jsx</div>
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(<HeadingComponent/>);
+
+// Parcel do hot module replacement
