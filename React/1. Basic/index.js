@@ -7,7 +7,8 @@ const HeadingComponent = () =>
 (
 <div>Functional Component returns the jsx
 
-    <div>This is another div</div>
+    <div>This is another div</div> 
+    {heading}
 </div>
 
 )
