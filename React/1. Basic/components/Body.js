@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 
 let resList = [
@@ -30,12 +31,13 @@ let resList = [
 
 
 const Body = () => {
+    const [stateList, setStateList] = useState(resList);
     return (
         <div className="main-body">
             <div className="search-container">
                 <button onClick={()=>{
-                    resList = resList.filter((restaurant)=>restaurant.rating>4.0)
-                    console.log(resList)
+                    const filteredList = resList.filter((restaurant)=>restaurant.rating>4.0)
+                    setStateList(filteredList)
                 }}>
                     Top Rated Restaurant
                 </button>
@@ -43,8 +45,8 @@ const Body = () => {
 
             <div className="restaurant-container">
                 {/* PROPS Structure is better */}
-                {resList.map((restaurant)=>(
-                    <RestaurantCard resData={restaurant} />
+                {stateList.map((restaurant)=>(
+                    <RestaurantCard key={restaurant.name} resData={restaurant} />
                 ))}
             </div>
         </div>
