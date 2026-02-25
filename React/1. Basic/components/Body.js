@@ -34,9 +34,9 @@ const Body = () => {
         <div className="main-body">
             <div className="search-container"></div>
             <div className="restaurant-container">
-                {/* <RestaurantCard name="A restaurant" rating="4.2" deliveryTime="30 mins"  /> */}
+                {/* PROPS Structure is better */}
                 {resList.map((restaurant)=>(
-                    <RestaurantCard name={restaurant.name} rating={restaurant.rating} deliveryTime={restaurant.deliveryTime} />
+                    <RestaurantCard resData={restaurant} />
                 ))}
             </div>
         </div>
