@@ -17,7 +17,7 @@ const HeadingComponent = () =>
 
 )
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent/>);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<HeadingComponent/>);
 
 // Parcel do hot module replacement

@@ -1,0 +1,46 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid gainsboro;
+    border-radius: 20px;
+}
+.logo-container {
+    border-top-left-radius: 20px;
+}
+.logo-container img {
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.nav-items > ul {
+    display: flex;
+}
+
+.nav-items ul li {
+    padding: 10px;
+    margin-right: 20px;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.restaurant-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.res-card {
+    height: 200px;
+    width: 200px;
+    border: 1px solid lightgrey;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.res-card:hover {
+    border-color: black;
+}
+
+.res-card img {
+    width: 100%;
+    object-fit: cover;
+}
