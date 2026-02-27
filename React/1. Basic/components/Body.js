@@ -35,6 +35,8 @@ const Body = () => {
     return (
         <div className="main-body">
             <div className="search-container">
+                <input type="text"></input>
+                <button>Search</button>
                 <button onClick={()=>{
                     const filteredList = resList.filter((restaurant)=>restaurant.rating>4.0)
                     // Whenever the State Variable Updates. React ReRender the UIComponent.

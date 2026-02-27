@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React basic",
   "scripts": {
+    "start": "parcel index.html",
     "test": "jest"
   },
   "repository": {
