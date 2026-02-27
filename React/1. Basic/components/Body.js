@@ -1,44 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-
-let resList = [
-    {
-        name: "A restaurant",
-        rating: 4.2,
-        deliveryTime: "30 mins"
-    },
-    {
-        name: "B restaurant",
-        rating: 4.1,
-        deliveryTime: "30 mins"
-    },
-    {
-        name: "C restaurant",
-        rating: 3.8,
-        deliveryTime: "30 mins"
-    },
-    {
-        name: "D restaurant",
-        rating: 4.2,
-        deliveryTime: "30 mins"
-    },
-    {
-        name: "E restaurant",
-        rating: 4.2,
-        deliveryTime: "30 mins"
-    }
-]
-
+// import { resList } from "./DummyData";
 
 const Body = () => {
-    const [stateList, setStateList] = useState(resList);
+    const [stateList, setStateList] = useState([]);
+    // const [stateFilteredList, setStateFilteredList] = useState
+    useEffect(()=>{
+        fetchData();
+    },[])
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3102094&lng=77.3698382&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+
+        const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        console.log(restaurants);
+        setStateList(restaurants)
+    }
+    
     return (
         <div className="main-body">
             <div className="search-container">
                 <input type="text"></input>
                 <button>Search</button>
                 <button onClick={()=>{
-                    const filteredList = resList.filter((restaurant)=>restaurant.rating>4.0)
+                    const filteredList = stateList.filter((restaurant)=>restaurant.info.avgRating>4.0)
                     // Whenever the State Variable Updates. React ReRender the UIComponent.
                     setStateList(filteredList)
                 }}>
@@ -48,8 +34,9 @@ const Body = () => {
 
             <div className="restaurant-container">
                 {/* PROPS Structure is better */}
+                {console.log(stateList)}
                 {stateList.map((restaurant)=>(
-                    <RestaurantCard key={restaurant.name} resData={restaurant} />
+                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                 ))}
             </div>
         </div>

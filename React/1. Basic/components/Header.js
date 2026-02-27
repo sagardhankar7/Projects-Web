@@ -8,14 +8,14 @@ const Header = () => {
     useEffect(()=>{
 
         const timer = setInterval(() => {
-                        setAnimation(true)
+                        // setAnimation(true)
                         setTimeout(() => {
                             setAnimation(false) 
                         }, 300);
                         setHome(homeList[homeListIndex])
                         homeListIndex += 1
                         if (homeListIndex==homeList.length) homeListIndex = 0
-                    }, 1200);
+                    },1200);
                     
           return () => {
             // cleanup code
