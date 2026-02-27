@@ -1,8 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-    
+    const homeList=[
+        "Home", "First", "Top", "Up"
+    ]
+    let homeListIndex=0
+    useEffect(()=>{
+
+        const timer = setInterval(() => {
+                        setAnimation(true)
+                        setTimeout(() => {
+                            setAnimation(false) 
+                        }, 300);
+                        setHome(homeList[homeListIndex])
+                        homeListIndex += 1
+                        if (homeListIndex==homeList.length) homeListIndex = 0
+                    }, 1200);
+                    
+          return () => {
+            // cleanup code
+                clearInterval(timer)
+            };
+
+    },[])
     const [name, setName] = useState(["Swiggy"]);
+    const [home, setHome] = useState(["First"]);
+    const [animation, setAnimation] = useState(false);
+
     return (
         <div className="header">
             <div className="logo-container">
@@ -15,7 +39,7 @@ const Header = () => {
             }}>{name}</h1>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
+                    <li className={animation? "slide-li" : ""}>{home}</li>
                     <li>Orders</li>
                     <li>Profile</li>
                     <li>Cart</li>

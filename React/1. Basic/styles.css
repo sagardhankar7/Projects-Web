@@ -24,6 +24,17 @@
     cursor: pointer;
 }
 
+.nav-items ul li:first-child {
+    display: inline-block;
+    width: 50px;
+    text-overflow: hidden;
+}
+
+.slide-li {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
 .restaurant-container {
     display: flex;
     flex-wrap: wrap;
