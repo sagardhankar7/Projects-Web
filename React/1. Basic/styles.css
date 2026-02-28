@@ -58,3 +58,15 @@
     object-fit: cover;
     /* border-radius: 20px; */
 }
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    height: 200px ;
+    width: 200px;
+    background-color: #f0f0f0;
+    margin: 10px;
+}
