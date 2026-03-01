@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+/* .nav-items ul li Link {
+    text-decoration: none;
+} */
+
 .nav-items ul li:first-child {
     display: inline-block;
     width: 50px;

@@ -6,7 +6,9 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router";
+import { Outlet } from "react-router";
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Error from "./components/Error";
 
 
@@ -16,7 +18,7 @@ const AppLayout = () => {
     return (
         <div className="app">
             <Header></Header>
-            <Body></Body>
+            <Outlet />
             <Footer></Footer>
         </div>
         
@@ -27,12 +29,24 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    children: [
+        {
+        path: "/",
+        element: <Body />,
+        },
+        {
+        path: "/about",
+        element: <About />,
+        },
+        {
+        path: "/contact",
+        element: <Contact />,
+        },
+    ],
     errorElement: <Error />
   },
-  {
-    path: "/about",
-    element: <About />,
-  },
+  
+  
   
 ]);
 

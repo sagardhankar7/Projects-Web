@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const Header = () => {
     const homeList=[
@@ -39,9 +40,9 @@ const Header = () => {
             }}>{name}</h1>
             <div className="nav-items">
                 <ul>
-                    <li className={animation? "slide-li" : ""}>{home}</li>
-                    <li>Orders</li>
-                    <li>Profile</li>
+                    <li className={animation? "slide-li" : ""}><Link to="/">{home}</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <li>Cart</li>
                 </ul>
             </div>
