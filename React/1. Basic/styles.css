@@ -74,3 +74,33 @@
     background-color: #f0f0f0;
     margin: 10px;
 }
+
+.menu-item-list {
+    
+}
+
+.menu-item-list li {
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    transition: hover 0.1s ease;
+}
+
+.menu-item-list li:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.menu-item-list li img {
+    border-radius: 20px;
+}
+
+.res-container > h1 {
+    text-decoration: underline;
+    
+}

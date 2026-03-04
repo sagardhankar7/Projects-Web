@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import ListOfRestaurant from "../utils/ListOfRestaurants.json"
 import Shimmer from "./Shimmer"
+import { Link } from "react-router";
 // import { resList } from "./DummyData";
 
 const Body = () => {
@@ -12,11 +14,13 @@ const Body = () => {
     },[])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3102094&lng=77.3698382&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
+        // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3102094&lng=77.3698382&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        // const json = await data.json();
+        const json = ListOfRestaurant;
 
-        const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(restaurants);
+        const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        console.log(json);
+        
         setStateList(restaurants)
         setFilteredRest(restaurants)
     }
@@ -49,7 +53,8 @@ const Body = () => {
                 {/* PROPS Structure is better */}
                 {console.log(filteredRest, "50")}
                 {filteredRest.map((restaurant)=>(
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                    <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+                    
                 ))}
             </div>
         </div>
