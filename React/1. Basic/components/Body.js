@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { RestaurantCardEnhanced } from "./RestaurantCard";
 import ListOfRestaurant from "../utils/ListOfRestaurants.json"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router";
@@ -9,6 +9,8 @@ const Body = () => {
     const [stateList, setStateList] = useState([]);
     const [searchText, setSearchText] = useState("")
     const [filteredRest, setFilteredRest] = useState([])
+    const RestaurantCardPromoted = RestaurantCardEnhanced(RestaurantCard)
+
     useEffect(()=>{
         fetchData();
     },[])
@@ -51,9 +53,12 @@ const Body = () => {
 
             <div className="restaurant-container">
                 {/* PROPS Structure is better */}
-                {console.log(filteredRest, "50")}
                 {filteredRest.map((restaurant)=>(
-                    <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+                    <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}>
+                        {restaurant.info?.veg===true ? (<RestaurantCardPromoted resData={restaurant}/>) : (<RestaurantCard resData={restaurant} />)}
+                        
+                        
+                        </Link>
                     
                 ))}
             </div>

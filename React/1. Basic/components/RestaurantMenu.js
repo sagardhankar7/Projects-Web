@@ -25,7 +25,7 @@ const RestaurantMenu = () => {
         const arrForName = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
         const name = arrForName[arrForName.length-1].card.card.name
         setResName(name)
-    }   
+    }
     
     const onlineStatus = useOnlineStatus();
 

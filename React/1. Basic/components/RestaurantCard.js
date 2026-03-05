@@ -11,10 +11,21 @@ const RestaurantCard = (props) => {
             <div>
                 <div className="res-name">{name}</div>
                 <div className="res-rating">{avgRating}</div>
-                {/* <div className="res-delivery-time">{deliveryTime}</div> */}
             </div>
         </div>
     )
+}
+
+export const RestaurantCardEnhanced = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div className="promoted-card">
+                <span>Veg Only</span>
+                <RestaurantCard {...props}/>
+            </div>
+            
+        )
+    }
 }
 
 export default RestaurantCard;

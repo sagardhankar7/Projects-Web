@@ -1,24 +1,24 @@
 import { useEffect } from "react";
-import Restaurant from "../utils/Restaurant.json"
+import LunchBox from "./LunchBox.json"
 
 const useRestaurantMenu = () => {
+    const [resInfo, setResInfo] = useState(null)
+    const [resName, setResName] = useState(null)
+
     useEffect(()=>{
         fetchRestaurant();
     },[])
 
     const fetchRestaurant = async () => {
-        console.log("Res details")
-        
-        
-        // const arr = Restaurant1.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards
-        // console.log(arr[0].card.info.name)
+        const json = LunchBox;
+        const list = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+        setResInfo(list)
 
-        console.log(Restaurant1.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.categories[0].itemCards)
-        // console.log(Restaurant2.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card)
-        const arr = Restaurant1.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.categories[0].itemCards
-        
+        const arrForName = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
+        const name = arrForName[arrForName.length-1].card.card.name
+        setResName(name)
     }
-    
+    return [resInfo, resName]
 }
 
 export default useRestaurantMenu;

@@ -102,5 +102,14 @@
 
 .res-container > h1 {
     text-decoration: underline;
-    
+}
+
+.promoted-card {
+    position: relative;
+}
+
+.promoted-card span {
+    position: absolute;
+    background-color: blue;
+    color: white;
 }
