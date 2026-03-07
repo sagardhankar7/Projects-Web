@@ -1,32 +1,16 @@
 import { useEffect, useState } from "react";
 // import { RES_URL } from "../utils/constants";
 import { useParams } from "react-router";
-import LunchBox from "../utils/LunchBox.json"
-import Chaayos from "../utils/Chaayos.json"
 import Shimmer from "./Shimmer";
 import { MENU_ITEM_IMG_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const {resId} = useParams()
-    const [resInfo, setResInfo] = useState(null)
-    const [resName, setResName] = useState(null)
     console.log(resId)
 
-    useEffect(()=>{
-        fetchRestaurant();
-    },[])
-
-    const fetchRestaurant = async () => {
-        const json = LunchBox;
-        const list = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        setResInfo(list)
-
-        const arrForName = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
-        const name = arrForName[arrForName.length-1].card.card.name
-        setResName(name)
-    }
-    
+    const [resInfo, resName] = useRestaurantMenu(resId);
     const onlineStatus = useOnlineStatus();
 
     if(onlineStatus==false) return (
