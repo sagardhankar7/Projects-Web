@@ -5,14 +5,17 @@ import Shimmer from "./Shimmer";
 import { MENU_ITEM_IMG_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantMenuCategory from "./RestaurantMenuCategory";
 
 const RestaurantMenu = () => {
     const {resId} = useParams()
-    console.log(resId)
+    // console.log(resId)
 
-    const [resInfo, resName] = useRestaurantMenu(resId);
+    const resInfo = useRestaurantMenu(resId);
     const onlineStatus = useOnlineStatus();
-
+    // console.log(resInfo)
+    const menuCategories = resInfo?.filter(c=> c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    console.log(menuCategories)
     if(onlineStatus==false) return (
         <h1>Please check your internet connnection!!</h1>
     )
@@ -21,15 +24,12 @@ const RestaurantMenu = () => {
 
     return(
         <div className="res-container">
-            <h1>{resName}</h1>
-            <ul className="menu-item-list"> 
-                {resInfo.itemCards.map(item=> <li key={item.card.info.id}>
-                    <div>
-                    <h1>{item.card.info.name}</h1>
-                    <h2>Rs.{item.card.info.price/100}</h2>
-                    </div>
-                    <img src={MENU_ITEM_IMG_URL+item.card.info.imageId}></img>
-            </li>)}
+            {/* <h1>{resName}</h1> */}
+            <ul className="menu-item-list">
+                {
+                menuCategories.map((c)=> {
+                    return <li key={c.card.card.title} >{c?.card?.card?.title}</li>
+                })}
             </ul>
             {/* <img src={MENU_ITEM_IMG_URL+imageId}></img> */}
             <img src="https://placehold.co/150x100/png"></img>

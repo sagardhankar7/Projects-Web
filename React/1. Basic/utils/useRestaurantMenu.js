@@ -10,7 +10,6 @@ import Res1028293 from "./BurgerKing.json"
 
 const useRestaurantMenu = (resId) => {
     const [resInfo, setResInfo] = useState(null)
-    const [resName, setResName] = useState(null)
     const jsonData = {
         Res1028293,
         Res518623,
@@ -33,15 +32,12 @@ const useRestaurantMenu = (resId) => {
         const str = "Res"+resId;
         console.log(str)
         const json = jsonData[str]; 
-        
-        const list = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+        // console.log(json)
+        // const list = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+        const list = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
         setResInfo(list)
-        
-        const arrForName = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
-        const name = arrForName[arrForName.length-1].card.card.name
-        setResName(name)
     }
-    return [resInfo, resName]
+    return resInfo
 }
 
 export default useRestaurantMenu;
