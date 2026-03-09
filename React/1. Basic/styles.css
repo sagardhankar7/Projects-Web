@@ -114,3 +114,32 @@
     color: white;
     font-size: 2rem;
 }
+
+.menu-category-header {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.menu-category-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.menu-category-item div:first-child {
+    border-left: 2px solid blue;
+    background-color: #f9f9f9;
+}
+
+.menu-category-item button {
+    position: absolute;
+    border: none;
+}
+
+.menu-category-item img {
+    width: 100px;
+    margin-right: 400px;
+    border-radius: 10px;
+}
