@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { IMG_URL } from "../utils/constants"
 
-const RestaurantMenuCategory = (data) => {
+const RestaurantMenuCategory = (data, showItems) => {
     console.log(data?.data?.card?.card)
-    const [showItems, setShowItems] = useState(false);
+    // const [showItems, setShowItems] = useState(false);
     
     const handleClick = () => {
-        setShowItems(showItems? false: true)
+        // setShowItems(showItems? false: true)
     }
 
     return (

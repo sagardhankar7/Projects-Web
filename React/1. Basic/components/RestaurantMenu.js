@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
             <ul className="menu-item-list">
                 {
                 menuCategories.map((c)=> {
-                    return <RestaurantMenuCategory key={c.card.card.categoryId} data={c} />
+                    return <RestaurantMenuCategory showItems={false} key={c.card.card.categoryId} data={c} />
                 })}
             </ul>
             {/* <img src={MENU_ITEM_IMG_URL+imageId}></img> */}
