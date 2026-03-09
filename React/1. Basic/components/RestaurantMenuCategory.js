@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { IMG_URL } from "../utils/constants"
 
-const RestaurantMenuCategory = (data, showItems) => {
-    console.log(data?.data?.card?.card)
+const RestaurantMenuCategory = ({data, show}) => {
+    console.log(data?.card?.card)
+    console.log("show is ",show)
     // const [showItems, setShowItems] = useState(false);
     
     const handleClick = () => {
@@ -12,9 +13,9 @@ const RestaurantMenuCategory = (data, showItems) => {
     return (
         <div>
             {/* Rescategory */}
-            <p onClick={handleClick} className="menu-category-header">{data?.data?.card?.card?.title}({data?.data?.card?.card?.itemCards?.length})</p>
+            <p className="menu-category-header">{data?.card?.card?.title}({data?.card?.card?.itemCards?.length})</p>
             
-            {showItems && data?.data?.card?.card?.itemCards.map((item)=>{
+            {show && data?.card?.card?.itemCards.map((item)=>{
                 return (<div className="menu-category-item" key={item?.card?.info?.id}>
                     <div>
                         <p>{item?.card?.info?.name}</p>
