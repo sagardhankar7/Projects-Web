@@ -9,7 +9,7 @@ import RestaurantMenuCategory from "./RestaurantMenuCategory";
 
 const RestaurantMenu = () => {
     const {resId} = useParams()
-    // console.log(resId)
+    const [indexToShow, setIndexToShow] = useState(1) // index 1 default value of indexToShow (index of component) 
 
     const resInfo = useRestaurantMenu(resId);
     const onlineStatus = useOnlineStatus();
@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
             <ul className="menu-item-list">
                 {
                 menuCategories.map((c,index)=> {
-                    return <RestaurantMenuCategory key={c.card.card.categoryId} data={c} show={index===0?true:false} />
+                    return <RestaurantMenuCategory key={c.card.card.categoryId} data={c} show={index===indexToShow?true:false} />
                 })}
             </ul>
             {/* <img src={MENU_ITEM_IMG_URL+imageId}></img> */}
