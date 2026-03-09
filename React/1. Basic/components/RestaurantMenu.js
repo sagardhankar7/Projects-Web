@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
             <ul className="menu-item-list">
                 {
                 menuCategories.map((c,index)=> {
-                    return <RestaurantMenuCategory key={c.card.card.categoryId} data={c} show={index===indexToShow?true:false} />
+                    return <RestaurantMenuCategory key={c.card.card.categoryId} data={c} show={index===indexToShow?true:false} setIndexToShow={()=>setIndexToShow(index)} />
                 })}
             </ul>
             {/* <img src={MENU_ITEM_IMG_URL+imageId}></img> */}
