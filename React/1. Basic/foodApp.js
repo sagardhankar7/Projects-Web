@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header";
 import RestaurantCard from "./components/RestaurantCard";
@@ -7,19 +7,33 @@ import Body from "./components/Body";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router";
 import { Outlet } from "react-router";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
+// import About from "./components/About";
+const About = lazy(()=> import("./components/About"))
 
 
 const AppLayout = () => {
+    const [userName, setUserName] = useState()
+
+    useEffect(()=>{
+    // let say , we receive data from backend API
+        const data = {
+            name: "Sagar Dhankar",
+        }
+        setUserName(data.name)
+    },[])
+
     return (
         <div className="app">
-            <Header></Header>
-            <Outlet />
-            <Footer></Footer>
+            <UserContext.Provider value={{loggedinUser: userName}}>
+                <Header />
+                <Outlet />
+                <Footer />
+            </UserContext.Provider>
         </div>
         
     )
@@ -36,7 +50,11 @@ const router = createBrowserRouter([
         },
         {
         path: "/about",
-        element: <About />,
+        element: (
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <About />
+            </Suspense>
+        ),
         },
         {
         path: "/contact",

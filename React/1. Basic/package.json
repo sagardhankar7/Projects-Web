@@ -4,6 +4,7 @@
   "description": "React basic",
   "scripts": {
     "start": "parcel index.html",
+    "dev": "vite",
     "test": "jest"
   },
   "repository": {
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/sagardhankar7/Projects-Web#readme",
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "@vitejs/plugin-react": "^5.1.4",
+    "parcel": "^2.16.4",
+    "vite": "^7.3.1"
   },
   "dependencies": {
     "react": "^19.2.4",

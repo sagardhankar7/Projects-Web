@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { IMG_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
     // Object inside PROPS
@@ -17,10 +19,11 @@ const RestaurantCard = (props) => {
 }
 
 export const withTopLabel = (RestaurantCard) => {
+    const context = useContext(UserContext)
     return (props) => {
         return (
             <div className="promoted-card">
-                <span>Top</span>
+                <span>Top Choice for {context.loggedinUser}</span>
                 <RestaurantCard {...props} />
             </div>
         )

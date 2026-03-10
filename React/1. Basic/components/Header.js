@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     const homeList=[
@@ -28,6 +29,8 @@ const Header = () => {
     const [home, setHome] = useState(["First"]);
     const [animation, setAnimation] = useState(false);
 
+    const {loggedinUser} = useContext(UserContext)
+
     return (
         <div className="header">
             <div className="logo-container">
@@ -44,6 +47,7 @@ const Header = () => {
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                     <li>Cart</li>
+                    <li>{loggedinUser}</li>
                 </ul>
             </div>
         </div>
