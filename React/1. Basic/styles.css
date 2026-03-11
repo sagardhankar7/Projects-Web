@@ -129,10 +129,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    border: 2px solid #f0f0f0;
+    margin-right: 600px;
+    border-radius: 10px;
+    padding: 10px;
+    /* background-color: #e7f4fd; */
 }
 .menu-category-item div:first-child {
-    border-left: 2px solid blue;
-    background-color: #f9f9f9;
+    /* border-left: 2px solid blue;
+    background-color: #f9f9f9; */
 }
 
 .menu-category-item button {
@@ -142,6 +147,6 @@
 
 .menu-category-item img {
     width: 100px;
-    margin-right: 400px;
+    /* margin-right: 400px; */
     border-radius: 10px;
 }

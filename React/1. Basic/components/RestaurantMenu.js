@@ -9,7 +9,7 @@ import RestaurantMenuCategory from "./RestaurantMenuCategory";
 
 const RestaurantMenu = () => {
     const {resId} = useParams()
-    const [indexToShow, setIndexToShow] = useState(1) // index 1 default value of indexToShow (index of component) 
+    const [indexToShow, setIndexToShow] = useState(0) // index 1 default value of indexToShow (index of component) 
 
     const resInfo = useRestaurantMenu(resId);
     const onlineStatus = useOnlineStatus();
