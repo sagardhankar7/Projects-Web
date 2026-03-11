@@ -39,6 +39,12 @@
     transition: transform 0.3s ease;
 }
 
+.search-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
 .restaurant-container {
     display: flex;
     flex-wrap: wrap;
@@ -73,10 +79,6 @@
     width: 200px;
     background-color: #f0f0f0;
     margin: 10px;
-}
-
-.menu-item-list {
-    
 }
 
 .menu-item-list li {

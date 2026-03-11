@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { withTopLabel, withVegLabel } from "./RestaurantCard";
 import ListOfRestaurant from "../utils/ListOfRestaurants.json"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router";
-// import { resList } from "./DummyData";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
     const [stateList, setStateList] = useState([]);
@@ -11,6 +11,7 @@ const Body = () => {
     const [filteredRest, setFilteredRest] = useState([])
     const RestaurantCardPromoted = withVegLabel(RestaurantCard)
     const RestaurantCardTop = withTopLabel(RestaurantCard)
+    const {loggedinUser, setUserName} = useContext(UserContext)
 
     useEffect(()=>{
         fetchData();
@@ -33,6 +34,7 @@ const Body = () => {
     return (
         <div className="main-body">
             <div className="search-container">
+                <div>
                 <input type="text" value={searchText} onChange={(e)=>{
                     setSearchText(e.target.value)
                     console.log(searchText,"31")
@@ -43,6 +45,7 @@ const Body = () => {
                     // Whenever the State Variable Updates. React ReRender the UIComponent.
                     setFilteredRest(filteredList)
                 }}>Search</button>
+                </div>
                 <button onClick={()=>{
                     const filteredList = stateList.filter((restaurant)=>restaurant.info.avgRating>4.0)
                     // Whenever the State Variable Updates. React ReRender the UIComponent.
@@ -50,6 +53,12 @@ const Body = () => {
                 }}>
                     Top Rated Restaurant
                 </button>
+                <div>
+                    <label>Set Username</label>
+                <input type="text" value={loggedinUser} onChange={(e)=>{
+                    setUserName(e.target.value)
+                }}></input>
+                </div>
             </div>
 
             <div className="restaurant-container">
