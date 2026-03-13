@@ -150,3 +150,13 @@
     /* margin-right: 400px; */
     border-radius: 10px;
 }
+
+.clear-cart {
+    display: flex;
+    justify-content: center;
+}
+
+.clear-cart button {
+    padding: 6px 10px;
+    border-radius: 15px;
+}
