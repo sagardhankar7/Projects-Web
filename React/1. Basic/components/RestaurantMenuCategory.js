@@ -16,8 +16,8 @@ const RestaurantMenuCategory = ({data, show, setIndexToShow, indexToShow}) => {
     }
 
     const dispatch = useDispatch() //dispatch an action
-    const handleAdd = () => {
-        dispatch(addItem("pavbhaji")) // calls a reducer funsion
+    const handleAdd = (item) => {
+        dispatch(addItem(item)) // calls a reducer funsion
     }
 
     return (
@@ -33,7 +33,7 @@ const RestaurantMenuCategory = ({data, show, setIndexToShow, indexToShow}) => {
                         {/* <p>{item?.card?.info?.description}</p> */}
                     </div>
                     <div>
-                        <button onClick={()=>handleAdd()}>Add +</button>
+                        <button onClick={()=>handleAdd(item)}>Add +</button>
                         <img src={IMG_URL + item?.card?.info?.imageId}></img>
                     </div>
                 </div>)

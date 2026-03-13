@@ -50,7 +50,7 @@ const Header = () => {
                     <li className={animation? "slide-li" : ""}><Link to="/">{home}</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
-                    <li>Cart({cartItems.length} items)</li>
+                    <li><Link to="/cart">Cart({cartItems.length} items)</Link></li>
                     <li>{loggedinUser}</li>
                 </ul>
             </div>

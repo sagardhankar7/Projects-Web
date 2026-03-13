@@ -5,7 +5,7 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: {
         // initial `state` of slice
-        items: ["Roti", "Chawal", "Burger","Fries"]
+        items: []
     },
     reducers: {
         // reducer functn correcponding to the actions
