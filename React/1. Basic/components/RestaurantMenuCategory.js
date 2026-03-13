@@ -1,15 +1,23 @@
 import { useState } from "react"
 import { IMG_URL } from "../utils/constants"
+import { useDispatch } from "react-redux"
+import { addItem } from "../redux_files/cartSlice"
+
 
 const RestaurantMenuCategory = ({data, show, setIndexToShow, indexToShow}) => {
-    console.log(data?.card?.card)
-    console.log("show is ",show)
+    // console.log(data?.card?.card)
+    // console.log("show is ",show)
     const [showItems, setShowItems] = useState(false);
     
     const handleClick = () => {
         setShowItems(showItems? false: true)
         setIndexToShow();
         console.log("index To Show " ,indexToShow)
+    }
+
+    const dispatch = useDispatch() //dispatch an action
+    const handleAdd = () => {
+        dispatch(addItem("pavbhaji")) // calls a reducer funsion
     }
 
     return (
@@ -25,7 +33,7 @@ const RestaurantMenuCategory = ({data, show, setIndexToShow, indexToShow}) => {
                         {/* <p>{item?.card?.info?.description}</p> */}
                     </div>
                     <div>
-                        <button>Add +</button>
+                        <button onClick={()=>handleAdd()}>Add +</button>
                         <img src={IMG_URL + item?.card?.info?.imageId}></img>
                     </div>
                 </div>)
