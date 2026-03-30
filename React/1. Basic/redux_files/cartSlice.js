@@ -1,3 +1,6 @@
+// Imported in Foodapp.js
+// Imported in Header.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({

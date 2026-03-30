@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "dev": "vite",
-    "test": "jest"
+    "test": "jest",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
