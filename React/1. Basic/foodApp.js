@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import RestaurantCard from "./components/RestaurantCard";
 import Footer from "./components/Footer";
@@ -13,76 +13,69 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import reduxStore from "./reduxStore";
-import Cart from "./components/Cart"
+import Cart from "./components/Cart";
 
 // import About from "./components/About";
-const About = lazy(()=> import("./components/About"))
-
+const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
-    const [userName, setUserName] = useState()
+  const [userName, setUserName] = useState();
 
-    useEffect(()=>{
+  useEffect(() => {
     // let say , we receive data from backend API
-        const data = {
-            name: "Sagar Dhankar",
-        }
-        setUserName(data.name)
-    },[])
+    const data = {
+      name: "Sagar Dhankar",
+    };
+    setUserName(data.name);
+  }, []);
 
-    return (
-        <div className="app">
-            <Provider store={reduxStore}>
-            <UserContext.Provider value={{loggedinUser: userName, setUserName}}>
-                <Header />
-                <Outlet />
-                <Footer />
-            </UserContext.Provider>
-            </Provider>
-        </div>
-        
-    )
-}
+  return (
+    <div className="app">
+      <Provider store={reduxStore}>
+        <UserContext.Provider value={{ loggedinUser: userName, setUserName }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
     children: [
-        {
+      {
         path: "/",
         element: <Body />,
-        },
-        {
+      },
+      {
         path: "/about",
         element: (
-            <Suspense fallback={<h1>Loading...</h1>}>
-                <About />
-            </Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
         ),
-        },
-        {
+      },
+      {
         path: "/contact",
         element: <Contact />,
-        },
-        {
+      },
+      {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
-        },
-        {
-            path: "/cart",
-            element: <Cart />
-        }
-        
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
-    errorElement: <Error />
+    errorElement: <Error />,
   },
-  
-  
-  
 ]);
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(<RouterProvider router={router} />)
+root.render(<RouterProvider router={router} />);
